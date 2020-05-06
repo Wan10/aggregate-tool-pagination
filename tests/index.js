@@ -181,6 +181,76 @@ describe('mongoose-paginate', function () {
       });
     });
 
+    it('get pipeline | Callback', function () {
+
+      let query = [{
+        $match: {
+          title: {
+            $in: [/Book/i]
+          }
+        }
+      }]
+      let aggregate = Book.aggregate(query)
+
+      let req = {
+        helpers: {
+          AddFields: [{
+            $addFields: { wan: 'LTV' }
+          }],
+          Populate: [{
+            ref: "authors"
+            , localField: "$author"
+            , foreignField: "$_id"
+            , virtualName: "author_detail"
+            , unwind: true
+          }],
+          PageOptions: true
+        },
+        lstParams: { limit: 10, page: 2, _qr: true}
+      };
+      let options = { allowDiskUse: true };
+      Book.aggregateTool(req, aggregate, options, (error,result) => {
+        expect(result).to.have.own.property('query');
+        expect(result).to.have.own.property('helpers');
+        expect(result).to.have.own.property('lstParams');
+      })
+    });
+
+    it('get pipeline | Sync/Await', async function () {
+
+      let query = [{
+        $match: {
+          title: {
+            $in: [/Book/i]
+          }
+        }
+      }]
+      let aggregate = Book.aggregate(query)
+
+      let req = {
+        helpers: {
+          AddFields: [{
+            $addFields: { wan: 'LTV' }
+          }],
+          Populate: [{
+            ref: "authors"
+            , localField: "$author"
+            , foreignField: "$_id"
+            , virtualName: "author_detail"
+            , unwind: true
+          }],
+          PageOptions: true
+        },
+        lstParams: { limit: 10, page: 2, _qr: true}
+      };
+      let options = { allowDiskUse: true };
+      const result = await Book.aggregateTool(req, aggregate, options);
+
+      expect(result).to.have.own.property('query');
+      expect(result).to.have.own.property('helpers');
+      expect(result).to.have.own.property('lstParams');
+    });
+
   });
   
   after(function (done) {
