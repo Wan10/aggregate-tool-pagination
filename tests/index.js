@@ -24,7 +24,7 @@ BookSchema.plugin(mongooseAggregatePaginate);
 
 let Book = mongoose.model('Book', BookSchema);
 
-describe('mongoose-paginate', function () {
+describe('mongoose-aggregate-tool', function () {
 
   before(function (done) {
     mongoose.connect(MONGO_URI, {

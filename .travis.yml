@@ -9,3 +9,7 @@ install:
   - npm install
 script:
   - npm test
+deploy:
+  provider: npm
+  email: "williamdotuan@gmail.com"
+  api_key: "21c62613-2dd7-4756-af29-1f4751933d77"
