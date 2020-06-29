@@ -1,10 +1,10 @@
 {
   "name": "aggregate-tool-pagination",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A most easiest plugin for aggregate pagination of Mongoose with customizable query.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/*.js -R spec --ui bdd --timeout 5000"
+    "test": "mocha tests/*.js -R spec --ui bdd --timeout 5000"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "prevpage",
     "paginator"
   ],
-  "author": "wan <williamdotuan@gmail.com>",
+  "author": "wan10 <williamdotuan@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Wan10/aggregate-tool-pagination/issues"
@@ -45,5 +45,11 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  }
 }
