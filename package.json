@@ -1,5 +1,5 @@
 {
-  "name": "aggregate-tool-pagination",
+  "name": "@aggregate-tool-pagination/aggregate-tool-pagination",
   "version": "1.0.0",
   "description": "A most easiest plugin for aggregate pagination of Mongoose with customizable query.",
   "main": "index.js",
