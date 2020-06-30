@@ -22,7 +22,7 @@ jspm_packages/
 images/
 # Optional npm cache directory
 .npm
-
+.env
 # Optional eslint cache
 .eslintcache
 
