@@ -116,7 +116,8 @@ describe('mongoose-aggregate-tool', function () {
           }],
           PageOptions: true
         },
-        lstParams: { limit: 10, page: 2 }
+        limit: 10, 
+        page: 2
       };
       let options = { allowDiskUse: true };
 
@@ -160,7 +161,8 @@ describe('mongoose-aggregate-tool', function () {
           }],
           PageOptions: true
         },
-        lstParams: { limit: 10, page: 2}
+        imit: 10
+        , page: 2
       };
       let options = { allowDiskUse: true };
 
@@ -206,7 +208,9 @@ describe('mongoose-aggregate-tool', function () {
           }],
           PageOptions: true
         },
-        lstParams: { limit: 10, page: 2, _qr: true}
+        limit: 10
+        , page: 2
+        , _qr: true
       };
       let options = { allowDiskUse: true };
       Book.aggregateTool(req, aggregate, options, (error,result) => {
@@ -241,7 +245,9 @@ describe('mongoose-aggregate-tool', function () {
           }],
           PageOptions: true
         },
-        lstParams: { limit: 10, page: 2, _qr: true}
+        limit: 10
+        , page: 2
+        , _qr: true
       };
       let options = { allowDiskUse: true };
       const result = await Book.aggregateTool(req, aggregate, options);
